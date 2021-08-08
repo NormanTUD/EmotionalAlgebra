@@ -113,7 +113,8 @@ Therefore, we need to define a time operator. I will suggest these:
 	$(f \wedge p) E$ & $E$ depends on the future and the past \\
 	$(n \wedge p) E$ & $E$ depends on the now and the past \\
 	$(n \wedge f \wedge p) E$ & $E$ depends on the now, the future and the past \\
-	$(n \wedge f \wedge p) \oplus E$ & $E$ depends on the now, the future and the past and is mainly considering the outside-world
+	$(n \wedge f \wedge p) \oplus E$ & $E$ depends on the now, the future and the past and is mainly \\
+					 &	considering the outside-world
 \end{tabular}
 
 \footnotetext{$\oplus$ is an old symbol for the earth, the outer world}
@@ -187,7 +188,8 @@ These operators are not exclusive, because every event can have facets that are 
 	$\downarrow_{0.9} E$ & Event $E$ is a very bad ($\downarrow = \downarrow_1$) \\
 	$\rightarrow^{1} E$ & Event $E$ is seen as emotionally neutral but I still care about it some way\footnotemark \\
 	$\rightarrow_{0} E$ & Event $E$ is seen as emotionally neutral and I don't care about it\footnotemark\\
-	$\updownarrow E$ & One is torn-apart if the event is good, bad or neutral (doubtful, uncertain), equal to $\uparrow E \wedge \downarrow E \wedge \rightarrow E$
+	$\updownarrow E$ & One is torn-apart if the event is good, bad or neutral (doubtful, uncertain), \\
+			 & equal to $\uparrow E \wedge \downarrow E \wedge \rightarrow E$
 \end{tabular}
 
 \footnotetext{E.g. a situation where somebody tells me the number of rice corns eaten every year}
@@ -400,7 +402,7 @@ person. Some people's temperament is more predicated on inner motivation $M$ tha
 These value-sets can be simplified like this:
 
 \begin{equation}
-	\mathrm{imp}\left(L_i, \left\{\textrm{rel}\left(r_{L_1}, L_1\right) \wedge \textrm{imp}\left(i_{L_1}, L_1\right) \wedge \dots\right\}\right) =
+	\left\{\mathrm{imp}\left(L_i, \left\{\textrm{rel}\left(r_{L_1}, L_1\right) \wedge \textrm{imp}\left(i_{L_1}, L_1\right) \wedge \dots\right\}\right)\right\} =
 	\left\{\mathrm{imp}\left(L_i, \textrm{rel}\left(r_{L_1}, L_1\right)\right) \wedge \textrm{imp}\left(i_{L_1} \cdot L_i, L_1\right) \wedge \dots\right\}
 \end{equation}
 
@@ -456,7 +458,8 @@ $\textrm{imp}(t, x)$. When left out, we define $x = \textrm{imp}(1, x)$.
 	$\wedge$ & Logical and, $I_1 \wedge I_2 \wedge I_3 =  I_1 \wedge (I_2 \wedge I_3) = (I_1 \wedge I_2) \wedge I_3$\\
 	$I_1 \supset I_2$ & $I_2$ depends on $I_1$, $I_1 \supset I_2 \supset I_3 = I_1 \supset (I_2 \supset I_3)$\\
 	$I_1 \lor I_2$ & Locigal or, $I_1 \lor I_2$ \\
-	$\lnot I_1$ & Negates $I_1$, so that $\lnot \downarrow I_1 = \uparrow I_2$ and $\lnot \textrm{cons}(1, I_1) = \textrm{cons}(0, I_1)$ and $(\lnot E)$ meaning `$E$ does not occur'\footnotemark
+	$\lnot I_1$ & Negates $I_1$, so that $\lnot \downarrow I_1 = \uparrow I_2$ and $\lnot \textrm{cons}(1, I_1) = \textrm{cons}(0, I_1)$ and \\
+		    & $(\lnot E)$ meaning `$E$ does not occur'\footnotemark
 \end{tabular}
 
 \footnotetext{Here grouping with brackets is important, since $\lnot \uparrow E$ may mean either `the god event $E$ will not occur' or $\downarrow E$, but with $(\lnot \uparrow) E$ it is clear
