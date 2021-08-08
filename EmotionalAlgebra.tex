@@ -1,0 +1,439 @@
+\documentclass{scrartcl}
+
+% These are only some keywords for the autocompletion-feature of many editors: section, subsection, subsubsection, paragraph,
+% includegraphics, width, linewidth, linespread, figure, wrapfigure, caption, label, footnote, equation, input, cite, citetitle,
+% citeauthor, footfullcite, tableofcontents, printbibliography, clearpage, frq, frqq, flq, flqq, grq, grqq, glq, glqq, textit,
+% texttt, mathrm, dots, pmatrix, centering, phantom, minipage, ensuremath, hfill, vfill, 
+
+\usepackage[
+	hidelinks,
+	breaklinks=true,
+	pdftex,
+	pdfauthor={Norman Koch},
+	pdftitle={Emotional Algebra},
+	pdfsubject={},
+	pdfkeywords={},
+	pdfproducer={},
+	pdfcreator={}]{hyperref}
+
+\delimitershortfall=-1pt
+
+\newcommand{\centeredquote}[2]{
+	\hbadness=5000
+	\vspace{-1em}
+	\begin{flushright}
+		\item\frqq\textsl{#1}\flqq\ 
+	\end{flushright}
+	\nopagebreak
+	\hfill ---\,\textsc{#2}\newline
+	\vspace{-1em}
+}
+
+\newcommand{\centeredquoteunknownsource}[1]{
+	\hbadness=5000
+	\vspace{-1em}
+	\begin{quotation}
+		\begin{flushright}
+			\item\frqq\textsl{#1}\flqq\ 
+		\end{flushright}
+	\end{quotation}
+	\vspace{-1em}
+}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[sc,osf]{mathpazo}
+\usepackage{fourier}
+\usepackage{soulutf8}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{amssymb}
+\usepackage{babel}
+\usepackage{lettrine}
+\usepackage{xcolor}
+
+\renewcommand{\LettrineFontHook}{\usefont{U}{yinit}{m}{n}}
+
+\emergencystretch2em
+
+
+\begin{document}
+
+\author{Norman Koch}
+\title{Emotional Algebra}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Preface}
+
+\lettrine[nindent=0em]{\color{purple}T}{he Formalization}
+of logic allowed us, a long period of time after it's discovery by Aristotle, to build computers that can outsource some of our
+mental facilities. They allowed us to perform logical reasoning on a great number of propositions automatically.
+
+We do very bad with things that cannot be put easily in front of us. A lot of problems humanity faces are the results of
+denying subjective experience and declaring only physical events as true. Physical events are more easily formalized than
+emotional ones and therefore offer a false feeling of more confidence in the results. Once something is formalized, we have
+easier access to it because we can manipulate it in our mind without having to life through all of the real consequences.
+Imagine an architect, building buildings which collapse every time until they don't anymore after `fixing all the bugs'.
+This is unacceptable. But we do it in our emotional world all the time, because there is no easy way to externalizing them
+and looking at their possible emotional consequences rigorously.
+
+In this paper, I'd like to try to formalize emotions a similiar way we have formalized math. This, if it works, may 
+lead to greater understanding of humans.
+
+I will not try to explain what the basic words (like emotion) mean. You have to understand what they mean naturally,
+as you have to understand `sets' in set theory naturally. If you don't know what something like `feels bad' mean
+think seriously about cutting off your arm. This would have consequences that you subjectively most likely consider
+`bad' in the now (pain) and the future (inability to use arm).
+
+\section{Conditions}
+
+We need to define some conditions that affect human emotion first. I believe these are the most important facilities that
+do that.
+
+\subsection{Time}
+
+Every human emotion is resided in the now. Even if we think about past or worry about the future, we do it \textit{now}.
+And the now, although it always is, never really is. Once contemplated, it is already gone and slipped into the past.
+
+Therefore, we need to define a time operator. I will suggest these:
+
+\begin{tabular}{l|l}
+	$E$           & $E$ is any emotional event \\
+	$n E$ & $E$ depends mainly on the current situation \\
+	$p E$ & $E$ depends mainly on a past situation \\
+	$f E$ & $E$ depends mainly on future situations (`worry') \\
+	$(n \wedge f) E$ & $E$ depends on the current situation now and the future \\
+	$(f \wedge p) E$ & $E$ depends on the future and the past \\
+	$(n \wedge p) E$ & $E$ depends on the now and the past \\
+	$(n \wedge f \wedge p) E$ & $E$ depends on the now, the future and the past
+\end{tabular}
+
+\subsubsection{Now}
+
+As every moment is always depending on the `now', we can treat it analogously to the multiplication operation 
+and leave it out like we leave out the multiplication symbol if it should not be preciously stretched that the
+situation is depending on the now and mainly the now, so $n E = E$.
+
+\subsubsection{Past}
+
+For this section, I will define reality as that on which external observers and I can agree to be the fact.
+
+Sometimes, people misremember and therefore construct a past for themselves that did not really happen. In formalization
+I suggest to label events with $\mathcal{E}(t, E)$ if this happens, where $t$ is the level of accuracy of the
+remembrance, where 1 means very reliable memory and 0 means very unreliable memory. Therefore, a complete sentence would be:
+
+\begin{equation} n \left(p \left( \mathcal{E}(t, E_1) \wedge E_2 \right) \right) \end{equation}
+
+This would mean that the current situation is depending on a misremembered event $E_1$ and a real event
+$E_2$.
+
+\subsubsection{Future and doubt}
+
+As the past is not here anymore and cannot be known with the same certainty than the present, the future
+cannot be known with any certainty. Therefore, future events are doubtful. 
+
+Doubt is the human condition of not-being-sure. Though I deny the possibility of absolute certainty we
+may define a formalization of doubt as $\mathcal{E}(t, E)$, where $t$ is between 0 and 1, where 0 means
+`I know nothing about the possibility of this event' and 1 means `I feel certain that this event will happen'.
+
+An example:
+
+\begin{equation} n \left(f \left( \mathcal{E}(0.1, E_1) \wedge E_2 \right) \right) \end{equation}
+
+This means:
+
+``My current emotional situation depends on two things that depend on something tomorrow, of which one ($E_1$) will likely not
+occur and $E_2$ will certainly occur''
+
+Leaving out the $\mathcal{E}(t, E)$ defaults to $t = 1$, meaning $E = \mathcal{E}(1, E)$.
+
+\subsection{Emotional events}
+
+Every emotional event can be ordered in roughly 3 categories. `Good', `bad' and 'neutral'. This is the way an honest
+person would describe the emotion when asked how it felt. 
+
+Examples.
+
+Eating a really good meal in a good atmosphere results in an event that would be described as `good'. 
+
+Running for your life would result in an event called `bad'.
+
+Having a catatonic schizophrenic episode (the ones where people just don't react to anything and stop feeling entirely)
+can be considered als neutral (since the person does not feel anything anymore).
+
+I would like to define operators to describe these 3 categories. All of the arrow-operators are right-associative and
+only get one parameter, which is why you can leave out brackets without losing information about which event is meant.
+
+These operators are not exclusive, because every event can have facets that are good, bad and neutral altogether.
+
+\begin{tabular}{l|l}
+	$\uparrow E$ & Event $E$ is seen as good \\
+	$\downarrow E$ & Event $E$ is seen as bad \\
+	$\rightarrow E$ & Event $E$ is seen as emotionally neutral \\
+	$\uparrow^{0.1} E$ & Event $E$ is a bit good ($\uparrow = \uparrow^1$) \\
+	$\downarrow_{0.9} E$ & Event $E$ is a very bad ($\downarrow = \downarrow_1$) \\
+	$\rightarrow_{0} E$ & Event $E$ is seen as emotionally neutral and I don't care about it\footnotemark\\
+	$\rightarrow_{1} E$ & Event $E$ is seen as emotionally neutral but I still care about it some way\footnotemark \\
+	$\updownarrow E$ & One is torn-apart if the event is good, bad or neutral (doubtful), equal to $\uparrow E \wedge \downarrow E \wedge \rightarrow E$
+\end{tabular}
+
+\footnotetext{E.g. a situation where somebody tells me the number of rice corns eaten every year}
+\footnotetext{E.\,g. the fact that Donald Knuth was born on the 10th of January 1938,
+		which I care about, but it has no emotional significance over any other date that could be his birthday.}
+
+Leaving out the arrow should be a way for shortening it from $\rightarrow E$, so that $E = \rightarrow E$.
+
+\begin{equation} n \left(f \left( \mathcal{E}(0.1, \uparrow E_1) \wedge \downarrow E_2 \right) \right) \end{equation}
+
+``My current emotional situation depends on two things that depend on something tomorrow, of which one ($E_1$) will likely not
+occur which I am very happy about and which is important to me and $E_2$ will certainly occur which I am negative about''
+
+\subsection{Real Situations}
+
+Every moment is a complex mixture of influences from the (real and perceived) past, present and future. But some
+of these components are more important than others. The number of roof tiles in the room where I was born is
+an event in the past, but has barely any meaning to my situation at all. The people my parents were on the other
+hand we're very important. Therefore, it is important to give a formalism to ascribe importance. I suggest:
+
+\begin{equation} \mathcal{I}(i, E) \end{equation}
+
+That means event $E$ is $i$ important, where $i$ is between 0 (not important at all) to 1 (very important).
+
+\begin{equation} n 
+	\left(
+		f \left(
+			\mathcal{I}\left(
+				1, \mathcal{E}\left(
+					0.9, \uparrow E_1
+				\right)
+			\right)
+			\wedge
+			\left(
+				\mathcal{I}\left(
+					0.1, \downarrow E_2
+				\right)
+			\right)
+		\right)
+	\right) 
+\end{equation}
+
+``My current emotional situation depends on two things that depend on something tomorrow, of which one ($E_1$) will likely
+occur which is very important to me which I am very happy about and $E_2$ will certainly occur which I would be a bit negative about
+of which I also would don't really care much about if it happens''
+
+An example situation would be that I am very happy that the sun will rise tomorrow again ($E_1$) (most probably) and I hope that the moon
+does not crash into the earth before that ($E_2$), which I find highly unlikely to happen.
+
+\subsection{Atmosphere}
+
+Every situation is filled with an atmosphere. An atmosphere is the general way a world around one is perceived in the moment of perception.
+
+Atmospheres consist of a mix of expectations what will happen in a place (future) and what has happened (past) without them
+really neccessarily happening in the moment of perception. I will use the same Formalization as with Events,
+$n A$ being an atmosphere which is what it is because of what is currently happening, $p A$ an atmosphere that
+depends on the past and $f A$ an atmosphere that depends on the future.
+
+Think of dark alley at night being scary or a swimming pool party with friends
+in summer as happy, so, as with Events, they get arrows indicating good $\uparrow A$, bad $\downarrow A$ and neutral $\rightarrow A$.
+
+A good atmosphere now ($n\uparrow A$) in a place which is based on good events that happened there in the past (p $\uparrow E$)  can be written as:
+
+\begin{equation}n\uparrow A \left(
+		\uparrow A \supset \left(
+			p \uparrow E
+		\right)
+	\right)
+\end{equation}
+
+\subsection{Leib}
+
+The Leib (old german for `body') is not the body. The Leib is where we feel ourselves. We don't feel the bodily actions of severing
+nerves and so on, but pure pain when severing off a hand. The pain may be the result of a bodily event, but is not equal in extension,
+as pain is something mental. 
+
+Let's use $L$ for a `Leibliches' Event. 
+
+There are many different ways that the Leib can interact with our emotions. We can feel free for example. Think about having achieved
+a lot in a day and then going to bed happily, free of obligations left on that day. Or we can feel trapped, when we are in a situation
+where we don't know how to get out. These Events $L$ can therefore be either good ($\uparrow$), bad ($\downarrow$) or neutral ($\rightarrow$),
+which can also be supplemented with numbers like $\downarrow_1 L$ for `10 of 10'-pain or $\uparrow^1 L$ for a moment of great pleasure
+(e.\,g. a well-earned orgasm with a person one loves). Leaving out the number set's it to 1.
+
+Generally, these can be sorted like Events, as they are a special subcategory of Events. We have the modifiers $\uparrow$, $\downarrow$
+and $\rightarrow$ to ascribe how we feel towards something. Cutting off ones arm would probably be $\downarrow L$, eating something
+really delicious and healthy most probably leads to something like $\uparrow L$.
+
+It's important to note that these must not be `objective' criteria, but more subjective ones. 
+
+One may feel that cutting off ones arm ($H$)
+may be a good action ($\uparrow$), even though it turns out not to be in the future  which makes us unhappy in the future ($\downarrow f E$).
+This would be formalized as:
+
+\begin{equation} n \left(
+		f \downarrow \left( f\downarrow E \supset \uparrow H \right)
+	\right)
+\end{equation}
+
+\subsection{Actions}
+
+Sometimes we act like we do because of the past, sometimes because of the present and sometimes because of the future, and sometimes
+a complex mix of these. For example, you might have been screwed in a contract earlier (past), and now you set up a better contract
+for not getting screwed in the future. 
+
+Let's call Acts $H$ for german `Handlung' (Act).
+
+Sometimes acts don't turn out the way you wanted them to go. For acts that turn out good, let's use $\uparrow H$, for bad ones 
+$\downarrow H$, for neutral ones $\rightarrow H$ and for mixtures of these $\updownarrow H$. As with events and atmospheres,
+let's assign values between 0 and 1, like: $\uparrow^{0.9} H$ for an act that turned out to be good or $\downarrow_1$ for an
+act that turned out to be very bad.
+
+An act can follow situations and atmospheres. Think of running away ($H$) from the dark alley mentioned earlier. You do this because the
+atmosphere $A$ is bad because you know several people were murdered there ($E$) in the past and you want to go away from there right now. This would be
+described as:
+
+\begin{equation}
+	n \left(\left(
+		\downarrow A \supset p: \downarrow E
+	\right) \supset H\right)
+\end{equation}
+
+\subsection{Motivations}
+
+Let's call Motivations $M$. Not every act we do is fully motivated by conscious reasons. 
+
+If important, we can write this with $\mathcal{C}(c, M)$, where $c$ is between 0 and 1, where
+0 means `fully unconscious' and 1 means 'fully conscious'.
+
+When going into `autopilot', e.\,g. in a dangerous situation, $c$ will be very low. Imagine again running
+away from war. The Motivation $M$ is to survive, but it is so basic that you don't need much conscious reflection
+on that.
+
+Running away ($H$) successfully ($\uparrow$) from war ($\downarrow E$) to survive ($M$) would be formalized as:
+
+\begin{equation} n 
+	\left(
+		\left(
+			\downarrow \left(n\wedge p\wedge f\right)E \supset \mathcal{C}(0, M)
+		\right)
+		\supset \uparrow H 
+	\right)
+\end{equation}
+
+Successfully and very consciously moving your body ($H$) to get to a party ($E$) in the future you are happy about ($\uparrow$) can be written as:
+
+\begin{equation} n 
+	\left(
+		\left(
+			\uparrow f E \supset \mathcal{C}(1, M)
+		\right)
+		\supset \uparrow H 
+	\right)
+\end{equation}
+
+\subsection{Outline}
+
+There are these types of things that control emotion:
+
+\begin{tabular}{l|l}
+	$x$ & Type \\ \hline
+	$E$ & Events \\
+	$M$ & Motivations \\
+	$H$ & Actions \\
+	$A$ & Atmospheres \\
+	$L$ & Leib
+\end{tabular}
+
+Each of these can be prepended with one or more of the operators $\uparrow$ (good/successful), $\downarrow$ (bad/unsuccessful) and $\rightarrow$ (neutral).
+
+Each of these modifiers can have options from 0 to one, where positive options are in superscript and negative actions are in subscript, like
+very good actions $\uparrow^1$ and very bad actions $\downarrow_1$. When no number is written, it will default to 1, so that $\uparrow = \uparrow^1$.
+
+Any of these can lay in the past, present or future or any combinations of these, but at least one. When nothing is written, $x = p x$. 
+
+Every emotion is always bound in time and felt right now, therefore, every expression must start with
+
+\begin{equation} n x \end{equation}
+
+where $x$ is any of $E, M, H, A$ or $L$. Therefore, the `$n$' can be left away, meaning $x = n x$. Also, any of these can
+be dependent on the past $p$, present ($n$) and/or future ($f$).
+
+An Event $E$ can consist of multiple sub-factors, like having gone to a party successfully ($p \uparrow H$) and now experiencing a good atmosphere ($n \uparrow A$) 
+there would be formalized as:
+
+\begin{equation} n \left(
+		\left(
+			p \uparrow H \wedge n \uparrow A
+		\right)
+		\supset n \uparrow E 
+	\right)
+\end{equation}
+
+Some good emotional events $\uparrow E$ that happens in the future because of something you do now would but don't really want to do (like cleaning up
+your room) ($\downarrow A$) would be formalized as:
+
+\begin{equation} n \left(
+		n \downarrow A \supset f \uparrow E
+	\right)
+\end{equation}
+
+Some of these values have specification-functions.
+
+Events $E$ can me misremembered or remembered correctly. They can be modified with $\mathcal{E}(t, E)$, where $t = 0$ for very unreliable and
+$t = 1$ for very reliable subjective memories of the events. For future events, This can be used as a certainty-meter how certain (0 = not all certain
+and 1 = very certain) we are that they will occur. We can define that $M = \mathcal{E}(1, E)$.
+
+Motivations $M$ can be modified with the level of consciousness they require with $\mathcal{C}(t, M)$, where $t = 0$ means zero consciousness required
+(e.\,g. the will to survive) and $t = 1$ meaning high level of consciousness required, e.\,g. solving mathematical equations in order to obtain a goal.
+Leaving this out will mean $\mathcal{C}(1, M) = M$.
+
+All of these situations $x$ can be ascribed with an importance level, where $t = 0$ no importance and $t = 1$ is extreme importance. We define this as
+$\mathcal{I}(t, x)$. When left out, we define $x = \mathcal{I}(1, x)$.
+
+\section{Symbols and parameters}
+
+\begin{tabular}{l|l}
+	Symbol & Type \\ \hline
+	$I$ & Any item possible or combination of items \\
+	$p, f, n$ & Past, future and present \\
+	$\uparrow, \downarrow, \rightarrow$ & Positive, negative and neutral \\
+	$(, )$ & Brackets, create groups of elements in order to overcome standard precedence rules \\
+	$\wedge$ & Logical and, $I_1 \wedge I_2 \wedge I_3 =  I_1 \wedge (I_2 \wedge I_3) = (I_1 \wedge I_2) \wedge I_3$\\
+	$I_1 \supset I_2$ & $I_2$ depends on $I_1$, $I_1 \supset I_2 \supset I_3 = I_1 \supset (I_2 \supset I_3)$\\
+	$I_1 \lor I_2$ & Locigal or, $I_1 \lor I_2$ \\
+	$\lnot I_1$ & Negates $I_1$, so that $\lnot \downarrow I_1 = \uparrow I_2$ and $\lnot \mathcal{C}(1, I_1) = \mathcal{C}(0, I_1)$ and $(\lnot E)$ meaning `$E$ does not occur'\footnotemark
+\end{tabular}
+
+\footnotetext{Here grouping with brackets is important, since $\lnot \uparrow E$ may mean either `the god event $E$ will not occur' or $\downarrow E$, but with $(\lnot \uparrow) E$ it is clear
+that what is meant is `the event $E$ is bad' ($\downarrow E$).}
+
+\section{Inference Rules}
+
+The modifier functions $\mathcal{I}$ (importance), $\mathcal{E}$ (certainty) and $\mathcal{C}$ (consciousness required) are defined like this:
+
+\begin{equation} \mathcal{I}(t_1, E_1) \wedge \mathcal{I}(t_2, E_2) = \mathcal{I}(\frac{t_1 + t_2}{2}, E_1 \wedge E_2) \end{equation}
+
+So having to tasks $E_1, E_2$ that are 0.8 and 0.7 important respectively can be described as
+
+\begin{equation} \mathcal{I}(0.8, E_1) \wedge \mathcal{I}(0.7, E_2) = \mathcal{I}\left(\frac{0.8 + 0.7}{2}, E_1 \wedge E_2\right) = \mathcal{I}(0.75, E_1 \wedge E_2)\end{equation}
+
+Having them or'ed multiplies the values:
+
+\begin{equation} \mathcal{I}(0.8, E_1) \lor \mathcal{I}(0.7, E_2) = \mathcal{I}\left(0.8 \cdot 0.7, E_1 \lor E_2\right) = \mathcal{I}(0.56, E_1 \lor E_2)\end{equation}
+
+As a single event can have both negative and positive consequences simultaneously, we define
+
+\begin{equation}n \updownarrow E = f \downarrow E \wedge p \uparrow E\end{equation}
+
+Positive and negative \textit{do not} add up to neutral, but rather to torn-apart ($\updownarrow$):
+
+\begin{equation}\updownarrow E = \downarrow E_1 \wedge \uparrow E_2\end{equation}
+
+Neutral events do not change the output of an equation, like:
+
+\begin{equation}\downarrow E = \downarrow E_1 \wedge \rightarrow E_2\end{equation}
+
+\end{document}
