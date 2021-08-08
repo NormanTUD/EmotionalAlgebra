@@ -44,6 +44,7 @@
 \usepackage[sc,osf]{mathpazo}
 \usepackage{fourier}
 \usepackage{soulutf8}
+\usepackage{verbatim}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{longtable}
@@ -84,8 +85,8 @@ and looking at their possible emotional consequences rigorously.
 In this paper, I'd like to try to formalize emotions a similiar way we have formalized math. This, if it works, may 
 lead to greater understanding of humans.
 
-I will not try to explain what the basic words (like emotion) mean. You have to understand what they mean naturally,
-as you have to understand `sets' in set theory naturally. If you don't know what something like `feels bad' mean
+I will not try to explain what the basic words (like emotion) mean (\frq hypotheses non fingo\flq). You have to understand what they mean 
+naturally, as you have to understand `sets' in set theory naturally. If you don't know what something like `feels bad' mean
 think seriously about cutting off your arm. This would have consequences that you subjectively most likely consider
 `bad' in the now (pain) and the future (inability to use arm).
 
@@ -116,40 +117,42 @@ Therefore, we need to define a time operator. I will suggest these:
 
 As every moment is always depending on the `now', we can treat it analogously to the multiplication operation 
 and leave it out like we leave out the multiplication symbol if it should not be preciously stretched that the
-situation is depending on the now and mainly the now, so $n E = E$.
+situation is depending on the now and mainly the now, so $n E = E$. You can always set the n in front of
+any equation since when you think about this equation, it is always `now', but I wil leave them out from here on
+unless they are speficifically needed for emphasis.
 
 \subsubsection{Past}
 
 For this section, I will define reality as that on which external observers and I can agree to be the fact.
 
 Sometimes, people misremember and therefore construct a past for themselves that did not really happen. In formalization
-I suggest to label events with $\mathcal{E}(t, E)$ if this happens, where $t$ is the level of accuracy of the
+I suggest to label events with $\mathrm{rel}(t, E)$ if this happens, where $t$ is the level of accuracy of the
 remembrance, where 1 means very reliable memory and 0 means very unreliable memory. Therefore, a complete sentence would be:
 
-\begin{equation} n \left(p \left( \mathcal{E}(t, E_1) \wedge E_2 \right) \right) \end{equation}
+\begin{equation} p \left( \textrm{rel}(t, E_1) \wedge E_2 \right) \end{equation}
 
 This would mean that the current situation is depending on a misremembered event $E_1$ and a real event
 $E_2$.
 
-\subsubsection{Future and doubt}
+\subsubsection{Future and uncertainty}
 
-As the past is not here anymore and cannot be known with the same certainty than the present, the future
-cannot be known with any certainty. Therefore, future events are doubtful. 
+As the past is not here anymore and cannot be known with the same reliability than the present, the future
+cannot be known with any reliability. Therefore, future events are doubtful and uncertain. 
 
-Doubt is the human condition of not-being-sure. Though I deny the possibility of absolute certainty we
-may define a formalization of doubt as $\mathcal{E}(t, E)$, where $t$ is between 0 and 1, where 0 means
+Doubt is the human condition of not-being-sure. Though I deny the possibility of absolute reliability we
+may define a formalization of doubt as $\textrm{rel}(t, E)$, where $t$ is between 0 and 1, where 0 means
 `I know nothing about the possibility of this event' and 1 means `I feel certain that this event will happen'.
 
 An example:
 
-\begin{equation} n \left(f \left( \mathcal{E}(0.1, E_1) \wedge E_2 \right) \right) \end{equation}
+\begin{equation} f \left( \textrm{rel}(0.1, E_1) \wedge E_2 \right) \end{equation}
 
 This means:
 
 ``My current emotional situation depends on two things that depend on something tomorrow, of which one ($E_1$) will likely not
 occur and $E_2$ will certainly occur''
 
-Leaving out the $\mathcal{E}(t, E)$ defaults to $t = 1$, meaning $E = \mathcal{E}(1, E)$.
+Leaving out the $\textrm{rel}(t, E)$ defaults to $t = 1$, meaning $E = \textrm{rel}(1, E)$.
 
 \subsection{Emotional events}
 
@@ -176,9 +179,9 @@ These operators are not exclusive, because every event can have facets that are 
 	$\rightarrow E$ & Event $E$ is seen as emotionally neutral \\
 	$\uparrow^{0.1} E$ & Event $E$ is a bit good ($\uparrow = \uparrow^1$) \\
 	$\downarrow_{0.9} E$ & Event $E$ is a very bad ($\downarrow = \downarrow_1$) \\
+	$\rightarrow^{1} E$ & Event $E$ is seen as emotionally neutral but I still care about it some way\footnotemark \\
 	$\rightarrow_{0} E$ & Event $E$ is seen as emotionally neutral and I don't care about it\footnotemark\\
-	$\rightarrow_{1} E$ & Event $E$ is seen as emotionally neutral but I still care about it some way\footnotemark \\
-	$\updownarrow E$ & One is torn-apart if the event is good, bad or neutral (doubtful), equal to $\uparrow E \wedge \downarrow E \wedge \rightarrow E$
+	$\updownarrow E$ & One is torn-apart if the event is good, bad or neutral (doubtful, uncertain), equal to $\uparrow E \wedge \downarrow E \wedge \rightarrow E$
 \end{tabular}
 
 \footnotetext{E.g. a situation where somebody tells me the number of rice corns eaten every year}
@@ -187,7 +190,7 @@ These operators are not exclusive, because every event can have facets that are 
 
 Leaving out the arrow should be a way for shortening it from $\rightarrow E$, so that $E = \rightarrow E$.
 
-\begin{equation} n \left(f \left( \mathcal{E}(0.1, \uparrow E_1) \wedge \downarrow E_2 \right) \right) \end{equation}
+\begin{equation} f \left( \textrm{rel}(0.1, \uparrow E_1) \wedge \downarrow E_2 \right) \end{equation}
 
 ``My current emotional situation depends on two things that depend on something tomorrow, of which one ($E_1$) will likely not
 occur which I am very happy about and which is important to me and $E_2$ will certainly occur which I am negative about''
@@ -199,26 +202,24 @@ of these components are more important than others. The number of roof tiles in 
 an event in the past, but has barely any meaning to my situation at all. The people my parents were on the other
 hand we're very important. Therefore, it is important to give a formalism to ascribe importance. I suggest:
 
-\begin{equation} \mathcal{I}(i, E) \end{equation}
+\begin{equation} \textrm{imp}(i, E) \end{equation}
 
 That means event $E$ is $i$ important, where $i$ is between 0 (not important at all) to 1 (very important).
 
-\begin{equation} n 
-	\left(
-		f \left(
-			\mathcal{I}\left(
-				1, \mathcal{E}\left(
-					0.9, \uparrow E_1
-				\right)
-			\right)
-			\wedge
-			\left(
-				\mathcal{I}\left(
-					0.1, \downarrow E_2
-				\right)
+\begin{equation} 
+	f \left(
+		\textrm{imp}\left(
+			1, \textrm{rel}\left(
+				0.9, \uparrow E_1
 			\right)
 		\right)
-	\right) 
+		\wedge
+		\left(
+			\textrm{imp}\left(
+				0.1, \downarrow E_2
+			\right)
+		\right)
+	\right)
 \end{equation}
 
 ``My current emotional situation depends on two things that depend on something tomorrow, of which one ($E_1$) will likely
@@ -242,10 +243,8 @@ in summer as happy, so, as with Events, they get arrows indicating good $\uparro
 
 A good atmosphere now ($n\uparrow A$) in a place which is based on good events that happened there in the past (p $\uparrow E$)  can be written as:
 
-\begin{equation}n\uparrow A \left(
-		\uparrow A \supset \left(
+\begin{equation}n\uparrow A \supset \left(
 			p \uparrow E
-		\right)
 	\right)
 \end{equation}
 
@@ -273,9 +272,8 @@ One may feel that cutting off ones arm ($H$)
 may be a good action ($\uparrow$), even though it turns out not to be in the future  which makes us unhappy in the future ($\downarrow f E$).
 This would be formalized as:
 
-\begin{equation} n \left(
-		f \downarrow \left( f\downarrow E \supset \uparrow H \right)
-	\right)
+\begin{equation}
+	f \downarrow \left( f\downarrow E \supset \uparrow H \right)
 \end{equation}
 
 \subsection{Actions}
@@ -305,34 +303,31 @@ described as:
 
 Let's call Motivations $M$. Not every act we do is fully motivated by conscious reasons. 
 
-If important, we can write this with $\mathcal{C}(c, M)$, where $c$ is between 0 and 1, where
+If important, we can write this with $\textrm{cons}(c, M)$, where $c$ is between 0 and 1, where
 0 means `fully unconscious' and 1 means 'fully conscious'.
 
 When going into `autopilot', e.\,g. in a dangerous situation, $c$ will be very low. Imagine again running
 away from war. The Motivation $M$ is to survive, but it is so basic that you don't need much conscious reflection
 on that.
 
-Running away ($H$) successfully ($\uparrow$) from war ($\downarrow E$) to survive ($M$) would be formalized as:
+Running away ($H$) successfully ($\uparrow$) from war ($\downarrow E$) to survive ($M$) requires lot consciousness ($\textrm{cons}(0, M)$) would be formalized as:
 
-\begin{equation} n 
-	\left(
-		\left(
-			\downarrow \left(n\wedge p\wedge f\right)E \supset \mathcal{C}(0, M)
-		\right)
-		\supset \uparrow H 
+\begin{equation} 
+	\uparrow H \supset\left(
+		\left(n\wedge p\wedge f\right)E \supset \textrm{cons}(0, M)
 	\right)
 \end{equation}
 
 Successfully and very consciously moving your body ($H$) to get to a party ($E$) in the future you are happy about ($\uparrow$) can be written as:
 
-\begin{equation} n 
+\begin{equation}
 	\left(
-		\left(
-			\uparrow f E \supset \mathcal{C}(1, M)
-		\right)
-		\supset \uparrow H 
+		\uparrow f E \supset \textrm{cons}(1, M)
 	\right)
+	\supset \uparrow H 
 \end{equation}
+
+\subsection{Situations}
 
 \subsection{Outline}
 
@@ -347,10 +342,63 @@ There are these types of things that control emotion:
 	$L$ & Leib
 \end{tabular}
 
+All of them must be described together to form a complete description of a situation. 
+The events that lead to it and how they were perceived ($p m E$), the motivations that lead to these events ($p m M$)
+and control the current acts ($p m H$), the atmospheres in the place ($p m A$) and the Leib and for each of them information
+about the reliability- (rel), importance- (imp) and consciousness- (cons) levels.
+
+To form a Situation S, you need an equation in the form of ($\{\}$ being sets of those data):
+
+\begin{equation}
+	S :=: 
+\end{equation}
+
+\begin{equation}
+	\left.
+		\mathrm{imp}\left(E_i, \left\{\textrm{rel}\left(r_{E_1}, E_1\right) \wedge \textrm{imp}\left(i_{E_1}, E_1\right) \wedge \dots\right\}\right) \cup
+	\right.
+\end{equation}
+
+\begin{equation}
+	\left.
+		\mathrm{imp}\left(M_i, \left\{\textrm{rel}\left(r_{M_1}, M_1\right) \wedge \textrm{imp}\left(i_{M_1}, M_1\right) \wedge \dots\right\}\right) \cup
+	\right.
+\end{equation}
+
+\begin{equation}
+	\left.
+		\mathrm{imp}\left(H_i, \left\{\textrm{rel}\left(r_{H_1}, H_1\right) \wedge \textrm{imp}\left(i_{H_1}, H_1\right) \wedge \dots\right\}\right) \cup
+	\right.
+\end{equation}
+
+\begin{equation}
+	\left.
+		\mathrm{imp}\left(A_i, \left\{\textrm{rel}\left(r_{A_1}, A_1\right) \wedge \textrm{imp}\left(i_{A_1}, A_1\right) \wedge \dots\right\}\right) \cup
+	\right.
+\end{equation}
+
+\begin{equation}
+	\left.
+		\mathrm{imp}\left(L_i, \left\{\textrm{rel}\left(r_{L_1}, L_1\right) \wedge \textrm{imp}\left(i_{L_1}, L_1\right) \wedge \dots\right\}\right)
+	\right.
+\end{equation}
+
 Each of these can be prepended with one or more of the operators $\uparrow$ (good/successful), $\downarrow$ (bad/unsuccessful) and $\rightarrow$ (neutral).
 
 Each of these modifiers can have options from 0 to one, where positive options are in superscript and negative actions are in subscript, like
 very good actions $\uparrow^1$ and very bad actions $\downarrow_1$. When no number is written, it will default to 1, so that $\uparrow = \uparrow^1$.
+
+Each of these sets has a imp (importance) function with a specific parameter. The set of these parameters, i.\,e. $\{E_i, M_i, H_i, A_i, L_i\}$, define the temperament of the
+person. Some people's temperament is more predicated on inner motivation $M$ than on outter or inner events $E$, so for these, the importance values are $M_i > E_i$.
+
+These value-sets can be simplified like this:
+
+\begin{equation}
+	\mathrm{imp}\left(L_i, \left\{\textrm{rel}\left(r_{L_1}, L_1\right) \wedge \textrm{imp}\left(i_{L_1}, L_1\right) \wedge \dots\right\}\right) =
+	\left\{\mathrm{imp}\left(L_i, \textrm{rel}\left(r_{L_1}, L_1\right)\right) \wedge \textrm{imp}\left(i_{L_1} \cdot L_i, L_1\right) \wedge \dots\right\}
+\end{equation}
+
+% The sets internally get defined by cartesian products % TODO
 
 Any of these can lay in the past, present or future or any combinations of these, but at least one. When nothing is written, $x = p x$. 
 
@@ -364,34 +412,32 @@ be dependent on the past $p$, present ($n$) and/or future ($f$).
 An Event $E$ can consist of multiple sub-factors, like having gone to a party successfully ($p \uparrow H$) and now experiencing a good atmosphere ($n \uparrow A$) 
 there would be formalized as:
 
-\begin{equation} n \left(
-		\left(
-			p \uparrow H \wedge n \uparrow A
-		\right)
-		\supset n \uparrow E 
+\begin{equation}
+	\left(
+		p \uparrow H \wedge n \uparrow A
 	\right)
+	\supset n \uparrow E 
 \end{equation}
 
 Some good emotional events $\uparrow E$ that happens in the future because of something you do now would but don't really want to do (like cleaning up
 your room) ($\downarrow A$) would be formalized as:
 
-\begin{equation} n \left(
-		n \downarrow A \supset f \uparrow E
-	\right)
+\begin{equation}
+	n \downarrow A \supset f \uparrow E
 \end{equation}
 
 Some of these values have specification-functions.
 
-Events $E$ can me misremembered or remembered correctly. They can be modified with $\mathcal{E}(t, E)$, where $t = 0$ for very unreliable and
-$t = 1$ for very reliable subjective memories of the events. For future events, This can be used as a certainty-meter how certain (0 = not all certain
-and 1 = very certain) we are that they will occur. We can define that $M = \mathcal{E}(1, E)$.
+Events $E$ can me misremembered or remembered correctly. They can be modified with $\textrm{rel}(t, E)$, where $t = 0$ for very unreliable and
+$t = 1$ for very reliable subjective memories of the events. For future events, This can be used as a reliability-meter how certain (0 = not all certain
+and 1 = very certain) we are that they will occur. We can define that $M = \textrm{rel}(1, E)$.
 
-Motivations $M$ can be modified with the level of consciousness they require with $\mathcal{C}(t, M)$, where $t = 0$ means zero consciousness required
+Motivations $M$ can be modified with the level of consciousness they require with $\textrm{cons}(t, M)$, where $t = 0$ means zero consciousness required
 (e.\,g. the will to survive) and $t = 1$ meaning high level of consciousness required, e.\,g. solving mathematical equations in order to obtain a goal.
-Leaving this out will mean $\mathcal{C}(1, M) = M$.
+Leaving this out will mean $\textrm{cons}(1, M) = M$.
 
 All of these situations $x$ can be ascribed with an importance level, where $t = 0$ no importance and $t = 1$ is extreme importance. We define this as
-$\mathcal{I}(t, x)$. When left out, we define $x = \mathcal{I}(1, x)$.
+$\textrm{imp}(t, x)$. When left out, we define $x = \textrm{imp}(1, x)$.
 
 \section{Symbols and parameters}
 
@@ -404,7 +450,7 @@ $\mathcal{I}(t, x)$. When left out, we define $x = \mathcal{I}(1, x)$.
 	$\wedge$ & Logical and, $I_1 \wedge I_2 \wedge I_3 =  I_1 \wedge (I_2 \wedge I_3) = (I_1 \wedge I_2) \wedge I_3$\\
 	$I_1 \supset I_2$ & $I_2$ depends on $I_1$, $I_1 \supset I_2 \supset I_3 = I_1 \supset (I_2 \supset I_3)$\\
 	$I_1 \lor I_2$ & Locigal or, $I_1 \lor I_2$ \\
-	$\lnot I_1$ & Negates $I_1$, so that $\lnot \downarrow I_1 = \uparrow I_2$ and $\lnot \mathcal{C}(1, I_1) = \mathcal{C}(0, I_1)$ and $(\lnot E)$ meaning `$E$ does not occur'\footnotemark
+	$\lnot I_1$ & Negates $I_1$, so that $\lnot \downarrow I_1 = \uparrow I_2$ and $\lnot \textrm{cons}(1, I_1) = \textrm{cons}(0, I_1)$ and $(\lnot E)$ meaning `$E$ does not occur'\footnotemark
 \end{tabular}
 
 \footnotetext{Here grouping with brackets is important, since $\lnot \uparrow E$ may mean either `the god event $E$ will not occur' or $\downarrow E$, but with $(\lnot \uparrow) E$ it is clear
@@ -412,28 +458,68 @@ that what is meant is `the event $E$ is bad' ($\downarrow E$).}
 
 \section{Inference Rules}
 
-The modifier functions $\mathcal{I}$ (importance), $\mathcal{E}$ (certainty) and $\mathcal{C}$ (consciousness required) are defined like this:
+The modifier functions $\textrm{imp}$ (importance), $\textrm{rel}$ (reliability) and $\textrm{cons}$ (consciousness required) are defined like this:
 
-\begin{equation} \mathcal{I}(t_1, E_1) \wedge \mathcal{I}(t_2, E_2) = \mathcal{I}(\frac{t_1 + t_2}{2}, E_1 \wedge E_2) \end{equation}
+\begin{equation} \textrm{imp}(t_1, E_1) \wedge \textrm{imp}(t_2, E_2) :=: \textrm{imp}(\frac{t_1 + t_2}{2}, E_1 \wedge E_2) \end{equation}
 
 So having to tasks $E_1, E_2$ that are 0.8 and 0.7 important respectively can be described as
 
-\begin{equation} \mathcal{I}(0.8, E_1) \wedge \mathcal{I}(0.7, E_2) = \mathcal{I}\left(\frac{0.8 + 0.7}{2}, E_1 \wedge E_2\right) = \mathcal{I}(0.75, E_1 \wedge E_2)\end{equation}
+\begin{equation} \textrm{imp}(0.8, E_1) \wedge \textrm{imp}(0.7, E_2) = \textrm{imp}\left(\frac{0.8 + 0.7}{2}, E_1 \wedge E_2\right) = \textrm{imp}(0.75, E_1 \wedge E_2)\end{equation}
 
 Having them or'ed multiplies the values:
 
-\begin{equation} \mathcal{I}(0.8, E_1) \lor \mathcal{I}(0.7, E_2) = \mathcal{I}\left(0.8 \cdot 0.7, E_1 \lor E_2\right) = \mathcal{I}(0.56, E_1 \lor E_2)\end{equation}
+\begin{equation} \textrm{imp}(0.8, E_1) \lor \textrm{imp}(0.7, E_2) = \textrm{imp}\left(0.8 \cdot 0.7, E_1 \lor E_2\right) = \textrm{imp}(0.56, E_1 \lor E_2)\end{equation}
 
 As a single event can have both negative and positive consequences simultaneously, we define
 
-\begin{equation}n \updownarrow E = f \downarrow E \wedge p \uparrow E\end{equation}
+\begin{equation}n \updownarrow E :=: f \downarrow E \wedge p \uparrow E\end{equation}
 
 Positive and negative \textit{do not} add up to neutral, but rather to torn-apart ($\updownarrow$):
 
-\begin{equation}\updownarrow E = \downarrow E_1 \wedge \uparrow E_2\end{equation}
+\begin{equation}\updownarrow E :=: \downarrow E \wedge \uparrow E\end{equation}
+
+\begin{equation}\updownarrow \left(E_1 \wedge E_2\right) :=: \left(\downarrow E_1\right) \wedge \left(\uparrow E_2\right) \end{equation}
 
 Neutral events do not change the output of an equation, like:
 
-\begin{equation}\downarrow E = \downarrow E_1 \wedge \rightarrow E_2\end{equation}
+\begin{equation}\downarrow E :=: \downarrow E_1 \wedge \rightarrow E_2\end{equation}
+
+The event assesment-symbols can be pulled from several single events like this:
+
+\begin{equation}\downarrow E_1 \wedge \downarrow E_2 :=: \downarrow \left(E_1 \wedge E_2\right)\end{equation}
+
+\begin{comment}
+\section{Example}
+
+Let's construct the XOR-Operator $\oplus$. It is true for $a, b$ iff $(a \wedge \lnot b) \lor (\lnot a \wedge b)$ .
+
+Let $a, b$ be any type of Events consisting of a time string $t$, a positive-negative-neutral-modifier $m$ and the Events $a = E_1, b = E_2$.
+
+We have an equation of the form:
+
+\begin{equation}
+	\left(
+		\left(
+			t_1 m_1 E_1 
+		\right)
+		\lor
+		\lnot \left(
+			t_2 m_2 E_2
+		\right)
+	\right)
+	\lor 
+	\left(
+		\lnot\left(
+			t_1 m_1 E_1
+		\right) 
+		\lor 
+		\left(
+			t_2 m_2 E_2
+		\right)
+	\right)
+\end{equation}
+
+\end{comment}
+
 
 \end{document}
